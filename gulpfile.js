@@ -52,16 +52,6 @@ gulp.task('img', function() {
       .pipe(gulp.dest('./public/build/img'));
 });
 
-// gulp.task('views', function() {
-//   return gulp.src(viewFiles)
-//       .pipe(templateCache({
-//         standalone: true
-//       }))
-//       .on('error', interceptErrors)
-//       .pipe(rename("app.templates.js"))
-//       .pipe(gulp.dest('./src/js/config/'));
-// });
-
 // This task is used for building production ready
 // minified JS/CSS files into the dist/ folder
 gulp.task('build', ['html', 'browserify'], function() {

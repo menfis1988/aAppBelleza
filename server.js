@@ -25,7 +25,6 @@ mongoose.connection.on('error', () => {
 
 const passport = passportfb();
 
-
 const app = express();
 
 app.set('port', entorno.PORT);
