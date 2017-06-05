@@ -88135,15 +88135,17 @@ require('angular-material');
 
 require('angular-material-icons');
 
+require('./home');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var requires = ['ui.router', 'ngResource', 'ngAnimate', 'ngAria', 'ngMessages', 'ngMaterial', 'ngMdIcons', 'ngSanitize'];
+var requires = ['ui.router', 'ngResource', 'ngAnimate', 'ngAria', 'ngMessages', 'ngMaterial', 'ngMdIcons', 'ngSanitize', 'app.home'];
 
 window.app = _angular2.default.module('App', requires);
 
 _angular2.default.module('App').config(_app2.default);
 
-},{"./config/app.config":104,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90}],104:[function(require,module,exports){
+},{"./config/app.config":104,"./home":108,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90}],104:[function(require,module,exports){
 'use strict';
 
 AppConfig.$inject = ["$httpProvider", "$stateProvider", "$locationProvider", "$urlRouterProvider", "$mdThemingProvider"];
@@ -88163,4 +88165,109 @@ function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterP
 
 exports.default = AppConfig;
 
-},{}]},{},[103]);
+},{}],105:[function(require,module,exports){
+'use strict';
+
+HomeConfig.$inject = ["$stateProvider"];
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function HomeConfig($stateProvider) {
+  'ngInject';
+
+  $stateProvider.state('home', {
+    url: '/',
+    templateUrl: 'js/home/inicio.html',
+    controller: 'HomeCtrl'
+  });
+};
+
+exports.default = HomeConfig;
+
+},{}],106:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var HomeCtrl = function HomeCtrl($scope, $http, $stateParams, Home) {
+  'ngInject';
+
+  _classCallCheck(this, HomeCtrl);
+
+  $scope.authentication = Home;
+};
+HomeCtrl.$inject = ["$scope", "$http", "$stateParams", "Home"];
+
+exports.default = HomeCtrl;
+
+},{}],107:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Home = function Home($resource) {
+  'ngInject';
+
+  _classCallCheck(this, Home);
+
+  this.user = window.user;
+
+  return {
+    user: this.user
+  };
+};
+Home.$inject = ["$resource"];
+
+exports.default = Home;
+
+},{}],108:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _home = require('./home.config');
+
+var _home2 = _interopRequireDefault(_home);
+
+var _home3 = require('./home.controller');
+
+var _home4 = _interopRequireDefault(_home3);
+
+var _home5 = require('./home.service');
+
+var _home6 = _interopRequireDefault(_home5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Create the module where our functionality can attach to
+var homeModule = _angular2.default.module('app.home', []);
+
+// Include our UI-Router config settings
+
+homeModule.config(_home2.default);
+
+// Controllers
+
+homeModule.controller('HomeCtrl', _home4.default);
+
+//Services
+
+homeModule.service('Home', _home6.default);
+
+exports.default = homeModule;
+
+},{"./home.config":105,"./home.controller":106,"./home.service":107,"angular":102}]},{},[103]);

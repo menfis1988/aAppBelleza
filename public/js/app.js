@@ -11,6 +11,8 @@ import 'angular-messages';
 import 'angular-material';
 import 'angular-material-icons';
 
+import './home';
+
 const requires = [
   'ui.router',
   'ngResource',
@@ -20,6 +22,8 @@ const requires = [
   'ngMaterial',
   'ngMdIcons',
   'ngSanitize',
+
+  'app.home',
   
   ];
 
