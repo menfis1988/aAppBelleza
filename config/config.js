@@ -10,6 +10,11 @@ const config = {
   production: {
     PORT: 3001,
     MONGODB_URI: 'mongodb://userDB:user@localhost/nameDB'
+  },
+  facebook: {
+    clientID: '1680788428884453',
+    clientSecret: '551798cc20dbcfbe76ed8b85e5919d50',
+    callbackURL: 'http://localhost:3000'
   }
 }
 
