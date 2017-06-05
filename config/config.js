@@ -5,7 +5,7 @@ const config = {
 
   development: {
     PORT: 3000,
-    MONGODB_URI: 'mongodb://localhost:27017/GeoDB'
+    MONGODB_URI: 'mongodb://localhost:27017/BellezaDB'
   },
   production: {
     PORT: 3001,
