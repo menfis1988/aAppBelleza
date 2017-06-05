@@ -49,7 +49,11 @@ app.use(session({
 }));
 
 app.set('view engine', 'pug');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views')));
+
+const api = require('./routes');
+
+app.use('/', api)
 
 app.listen(app.get('port'), () => {
   console.log('%s App is running at http://localhost:%d in %s mode', chalk.blue('✓'), app.get('port'), app.get('env')); 
