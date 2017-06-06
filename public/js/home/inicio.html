@@ -1,15 +1,18 @@
-<section>
-  <section ng-show="!authentication.user">
-    <div>
-      <h2>Hola Mundo</h2>
-    </div>
-    <section layout="column" layout-align="center center">
-      <a href="/auth/facebook"><md-button class="md-raised md-primary "><i class="fa fa-facebook-official fa-lg"></i> Iniciar con facebook</md-button></a>
-    </section>
-  </section>
-  <section ng-show="authentication.user">
-    <div>
-      Estas autenticado
-    </div>
-  </section>
+<section ng-show="!authentication.user">
+  <div>
+    <md-container layout="row" >
+      <div hide-xs layout-margin layout-padding flex="40">
+        <img class="iphone" src="iphone.png" />
+      </div>
+      <md-container layout="column" layout-align="center center" flex>
+        <h2  layout-align="center center">Morlaquita 2017</h2>
+        <section layout="column" layout-align="center center">
+          <a href="/auth/facebook"><md-button class="md-raised md-primary "><i class="fa fa-facebook-official fa-lg"></i> Iniciar con facebook</md-button></a> 
+        </section>
+      </md-container>
+    </md-container>
+  </div>
 </section>
+<div ng-show="authentication.user" >
+  Autenticado
+</div>
