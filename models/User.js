@@ -1,17 +1,34 @@
 'use strict';
 
-const mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-var UserSchema = new Schema({
-  firstName: String,
-  lastName: String,
-  email: { type: String, match: [/.+\@.+\..+/, "Por favor escribe una dirección de email correcta"]},
-  username: { type: String, unique: true, required: 'Nombre de usuario es obligatorio', trim: true },
-  provider: { type: String },
-  providerId: String,
-  providerData: { picture: { type: String }},
-  created: { type: Date, default: Date.now }
+
+const userSchema = Schema({
+  email: { type: String, unique: true },
+  password: String,
+  passwordResetToken: String,
+  passwordResetExpires: Date,
+  tokens: Array,
+  
+
+  provider: String,
+  facebook: { type: String, unique: true, sparse: true },
+  google: { type: String, unique: true, sparse: true },
+  
+
+  profile: {
+    name: { type: String, default: '' },
+    gender: { type: String, default: '' },
+    location: { type: String, default: '' },
+    website: { type: String, default: '' },
+    picture: { type: String, default: '' }
+  },
+  
+  image: { type: String, default: 'img/account_circle_48px.svg'},
+
+  created: { type: Date, default: Date.now },
+  
 });
 
-mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', userSchema);

@@ -3,9 +3,13 @@
     <div>
       <h2>Hola Mundo</h2>
     </div>
+    <section layout="column" layout-align="center center">
+      <a href="/auth/facebook"><md-button class="md-raised md-primary "><i class="fa fa-facebook-official fa-lg"></i> Iniciar con facebook</md-button></a>
+    </section>
+  </section>
+  <section ng-show="authentication.user">
     <div>
-      Iniciar con Facebook
+      Estas autenticado
     </div>
   </section>
-  <div ng-show="authentication.user">
 </section>

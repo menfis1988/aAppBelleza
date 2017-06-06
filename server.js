@@ -15,6 +15,7 @@ const MongoStore      = require('connect-mongo')(session);
 const chalk           = require('chalk');
 const entorno         = require('./config/').config()
 const passportfb      = require('./config/passport');
+const passport        = require('passport');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(entorno.MONGODB_URI);
@@ -22,8 +23,6 @@ mongoose.connection.on('error', () => {
   console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
   process.exit();
 });
-
-const passport = passportfb();
 
 const app = express();
 
@@ -46,6 +45,8 @@ app.use(session({
     autoReconnect: true
   })
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -53,6 +54,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const api = require('./routes');
 
 app.use('/', api)
+
+
 
 app.listen(app.get('port'), () => {
   console.log('%s App is running at http://localhost:%d in %s mode', chalk.blue('✓'), app.get('port'), app.get('env')); 

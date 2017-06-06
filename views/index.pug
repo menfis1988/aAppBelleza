@@ -1,4 +1,6 @@
 extends layout.pug
 
 block content
+  script(type='text/javascript').
+      window.user =!{user || 'null'}
   section(ui-view='')
