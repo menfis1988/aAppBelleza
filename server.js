@@ -55,8 +55,6 @@ const api = require('./routes');
 
 app.use('/', api)
 
-
-
 app.listen(app.get('port'), () => {
   console.log('%s App is running at http://localhost:%d in %s mode', chalk.blue('✓'), app.get('port'), app.get('env')); 
   console.log('  Press CTRL-C to stop\n');
