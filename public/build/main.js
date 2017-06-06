@@ -88139,15 +88139,17 @@ require('./home');
 
 require('./candidatas');
 
+require('./components');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var requires = ['ui.router', 'ngResource', 'ngAnimate', 'ngAria', 'ngMessages', 'ngMaterial', 'ngMdIcons', 'ngSanitize', 'app.home', 'app.candidatas'];
+var requires = ['ui.router', 'ngResource', 'ngAnimate', 'ngAria', 'ngMessages', 'ngMaterial', 'ngMdIcons', 'ngSanitize', 'app.home', 'app.candidatas', 'app.components'];
 
 window.app = _angular2.default.module('App', requires);
 
 _angular2.default.module('App').config(_app2.default);
 
-},{"./candidatas":105,"./config/app.config":106,"./home":110,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90}],104:[function(require,module,exports){
+},{"./candidatas":105,"./components":106,"./config/app.config":108,"./home":112,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90}],104:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88213,6 +88215,63 @@ exports.default = candidatasModule;
 },{"./candidatas.component":104,"angular":102}],106:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _toolbar = require('./toolbar.component');
+
+var _toolbar2 = _interopRequireDefault(_toolbar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Create the module where our functionality can attach to
+var componentsModule = _angular2.default.module('app.components', []);
+
+// // Components
+// import BellezaHeader from './header.component';
+// componentsModule.component('bellezaHeader', BellezaHeader);
+
+// Components toolbar
+
+componentsModule.component('bellezaToolbar', _toolbar2.default);
+
+// import AppFooter from './footer.component';
+// componentsModule.component('appFooter', AppFooter);
+
+
+exports.default = componentsModule;
+
+},{"./toolbar.component":107,"angular":102}],107:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ToolbarCtrl = function ToolbarCtrl($scope, $timeout, $mdSidenav, $log) {
+  'ngInject';
+
+  _classCallCheck(this, ToolbarCtrl);
+};
+ToolbarCtrl.$inject = ["$scope", "$timeout", "$mdSidenav", "$log"];
+
+var BellezaToolbar = {
+  controller: ToolbarCtrl,
+  templateUrl: 'js/components/toolbar.html'
+};
+
+exports.default = BellezaToolbar;
+
+},{}],108:[function(require,module,exports){
+'use strict';
+
 AppConfig.$inject = ["$httpProvider", "$stateProvider", "$locationProvider", "$urlRouterProvider", "$mdThemingProvider"];
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -88220,9 +88279,9 @@ Object.defineProperty(exports, "__esModule", {
 function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterProvider, $mdThemingProvider) {
   'ngInject';
 
-  $mdThemingProvider.theme('default').primaryPalette('amber', {
-    'default': '500',
-    'hue-1': '700'
+  $mdThemingProvider.theme('default').primaryPalette('deep-orange', {
+    'default': '100',
+    'hue-1': '200'
   }).accentPalette('brown');
 
   $urlRouterProvider.otherwise('/');
@@ -88230,7 +88289,7 @@ function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterP
 
 exports.default = AppConfig;
 
-},{}],107:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 'use strict';
 
 HomeConfig.$inject = ["$stateProvider"];
@@ -88249,7 +88308,7 @@ function HomeConfig($stateProvider) {
 
 exports.default = HomeConfig;
 
-},{}],108:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88269,7 +88328,7 @@ HomeCtrl.$inject = ["$scope", "$http", "$stateParams", "Home"];
 
 exports.default = HomeCtrl;
 
-},{}],109:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88293,7 +88352,7 @@ Home.$inject = ["$resource"];
 
 exports.default = Home;
 
-},{}],110:[function(require,module,exports){
+},{}],112:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88335,4 +88394,4 @@ homeModule.service('Home', _home6.default);
 
 exports.default = homeModule;
 
-},{"./home.config":107,"./home.controller":108,"./home.service":109,"angular":102}]},{},[103]);
+},{"./home.config":109,"./home.controller":110,"./home.service":111,"angular":102}]},{},[103]);

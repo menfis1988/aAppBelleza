@@ -13,6 +13,7 @@ import 'angular-material-icons';
 
 import './home';
 import './candidatas';
+import './components';
 
 const requires = [
   'ui.router',
@@ -26,6 +27,7 @@ const requires = [
 
   'app.home',
   'app.candidatas',
+  'app.components',
   
   ];
 

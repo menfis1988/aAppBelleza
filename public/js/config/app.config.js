@@ -3,9 +3,9 @@ function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterP
   
 
   $mdThemingProvider.theme('default')
-       .primaryPalette('amber', {
-        'default': '500',
-        'hue-1': '700'
+       .primaryPalette('deep-orange', {
+        'default': '100',
+        'hue-1': '200'
       }) 
        .accentPalette('brown');
 

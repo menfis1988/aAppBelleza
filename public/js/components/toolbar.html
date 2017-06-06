@@ -1,0 +1,24 @@
+<div layout="column"  ng-cloak>
+  <section layout="row" flex>
+    <md-toolbar class="toolbar-fixed" layout="row" >
+      <div class="md-toolbar-tools">
+      <md-button href="#!/"  aria-label="More" class="hide-xs">
+        <md-icon md-svg-icon="img/add_location.svg"></md-icon><span>Morlaquitas 2017</span>
+      </md-button>
+      <md-button href="#!/auspiciantes"  aria-label="More" >
+        <md-icon md-svg-icon="img/explore_48px.svg" ></md-icon> Auspiciantes
+      </md-button>
+      <md-menu >
+        <md-button aria-label="Open demo menu" ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="More">
+          <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button href="/signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesion</md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+      </div>
+    </md-toolbar>
+    </section>
+  </div>
