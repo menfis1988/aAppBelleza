@@ -88109,6 +88109,13 @@ require('./angular');
 module.exports = angular;
 
 },{"./angular":101}],103:[function(require,module,exports){
+(function (__dirname){
+module.exports = {
+  STATIC_PATH: __dirname,
+};
+
+}).call(this,"/node_modules/material-design-icons")
+},{}],104:[function(require,module,exports){
 'use strict';
 
 var _angular = require('angular');
@@ -88135,6 +88142,8 @@ require('angular-material');
 
 require('angular-material-icons');
 
+require('material-design-icons');
+
 require('./home');
 
 require('./candidatas');
@@ -88149,7 +88158,7 @@ window.app = _angular2.default.module('App', requires);
 
 _angular2.default.module('App').config(_app2.default);
 
-},{"./candidatas":105,"./components":106,"./config/app.config":108,"./home":112,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90}],104:[function(require,module,exports){
+},{"./candidatas":106,"./components":107,"./config/app.config":109,"./home":113,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90,"material-design-icons":103}],105:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88174,7 +88183,7 @@ var CandidatasHeader = {
 
 exports.default = CandidatasHeader;
 
-},{}],105:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88212,7 +88221,7 @@ candidatasModule.component('candidatasHeader', _candidatas2.default);
 
 exports.default = candidatasModule;
 
-},{"./candidatas.component":104,"angular":102}],106:[function(require,module,exports){
+},{"./candidatas.component":105,"angular":102}],107:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88246,7 +88255,7 @@ componentsModule.component('bellezaToolbar', _toolbar2.default);
 
 exports.default = componentsModule;
 
-},{"./toolbar.component":107,"angular":102}],107:[function(require,module,exports){
+},{"./toolbar.component":108,"angular":102}],108:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88269,7 +88278,7 @@ var BellezaToolbar = {
 
 exports.default = BellezaToolbar;
 
-},{}],108:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 'use strict';
 
 AppConfig.$inject = ["$httpProvider", "$stateProvider", "$locationProvider", "$urlRouterProvider", "$mdThemingProvider"];
@@ -88289,7 +88298,7 @@ function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterP
 
 exports.default = AppConfig;
 
-},{}],109:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 'use strict';
 
 HomeConfig.$inject = ["$stateProvider"];
@@ -88308,7 +88317,7 @@ function HomeConfig($stateProvider) {
 
 exports.default = HomeConfig;
 
-},{}],110:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88328,7 +88337,7 @@ HomeCtrl.$inject = ["$scope", "$http", "$stateParams", "Home"];
 
 exports.default = HomeCtrl;
 
-},{}],111:[function(require,module,exports){
+},{}],112:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88352,7 +88361,7 @@ Home.$inject = ["$resource"];
 
 exports.default = Home;
 
-},{}],112:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88394,4 +88403,4 @@ homeModule.service('Home', _home6.default);
 
 exports.default = homeModule;
 
-},{"./home.config":109,"./home.controller":110,"./home.service":111,"angular":102}]},{},[103]);
+},{"./home.config":110,"./home.controller":111,"./home.service":112,"angular":102}]},{},[104]);

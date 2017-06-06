@@ -36,6 +36,7 @@
     "file-extension": "^3.0.2",
     "flash": "^1.1.0",
     "generator": "^1.0.1",
+    "material-design-icons": "^3.0.1",
     "method-override": "^2.3.3",
     "mongoose": "^4.7.6",
     "morgan": "^1.6.0",

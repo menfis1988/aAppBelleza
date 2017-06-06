@@ -10,6 +10,7 @@ import 'angular-sanitize';
 import 'angular-messages';
 import 'angular-material';
 import 'angular-material-icons';
+import 'material-design-icons';
 
 import './home';
 import './candidatas';
