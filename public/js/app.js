@@ -12,6 +12,7 @@ import 'angular-material';
 import 'angular-material-icons';
 
 import './home';
+import './candidatas';
 
 const requires = [
   'ui.router',
@@ -24,6 +25,7 @@ const requires = [
   'ngSanitize',
 
   'app.home',
+  'app.candidatas',
   
   ];
 

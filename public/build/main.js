@@ -88137,15 +88137,80 @@ require('angular-material-icons');
 
 require('./home');
 
+require('./candidatas');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var requires = ['ui.router', 'ngResource', 'ngAnimate', 'ngAria', 'ngMessages', 'ngMaterial', 'ngMdIcons', 'ngSanitize', 'app.home'];
+var requires = ['ui.router', 'ngResource', 'ngAnimate', 'ngAria', 'ngMessages', 'ngMaterial', 'ngMdIcons', 'ngSanitize', 'app.home', 'app.candidatas'];
 
 window.app = _angular2.default.module('App', requires);
 
 _angular2.default.module('App').config(_app2.default);
 
-},{"./config/app.config":104,"./home":108,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90}],104:[function(require,module,exports){
+},{"./candidatas":105,"./config/app.config":106,"./home":110,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90}],104:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CandidatasCtrl = function CandidatasCtrl($scope, Candidatas) {
+  'ngInject';
+
+  _classCallCheck(this, CandidatasCtrl);
+
+  $scope.candidatas = Candidatas.query();
+};
+CandidatasCtrl.$inject = ["$scope", "Candidatas"];
+
+var CandidatasHeader = {
+  controller: CandidatasCtrl,
+  templateUrl: 'js/candidatas/candidatas.html'
+};
+
+exports.default = CandidatasHeader;
+
+},{}],105:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _candidatas = require('./candidatas.component');
+
+var _candidatas2 = _interopRequireDefault(_candidatas);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Create the module where our functionality can attach to
+var candidatasModule = _angular2.default.module('app.candidatas', []);
+
+// // Include our UI-Router config settings
+// import CandidatasConfig from './candidatas.config';
+// candidatasModule.config(CandidatasConfig);
+
+// // Controllers
+// import CandidatasCtrl from './candidatas.controller';
+// candidatasModule.controller('CandidatasCtrl', CandidatasCtrl);
+
+// //Services
+// import CandidatasService from './candidatas.service';
+// candidatasModule.service('Candidatas', CandidatasService);
+
+// Components
+
+candidatasModule.component('candidatasHeader', _candidatas2.default);
+
+exports.default = candidatasModule;
+
+},{"./candidatas.component":104,"angular":102}],106:[function(require,module,exports){
 'use strict';
 
 AppConfig.$inject = ["$httpProvider", "$stateProvider", "$locationProvider", "$urlRouterProvider", "$mdThemingProvider"];
@@ -88165,7 +88230,7 @@ function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterP
 
 exports.default = AppConfig;
 
-},{}],105:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 'use strict';
 
 HomeConfig.$inject = ["$stateProvider"];
@@ -88184,7 +88249,7 @@ function HomeConfig($stateProvider) {
 
 exports.default = HomeConfig;
 
-},{}],106:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88204,7 +88269,7 @@ HomeCtrl.$inject = ["$scope", "$http", "$stateParams", "Home"];
 
 exports.default = HomeCtrl;
 
-},{}],107:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88228,7 +88293,7 @@ Home.$inject = ["$resource"];
 
 exports.default = Home;
 
-},{}],108:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88270,4 +88335,4 @@ homeModule.service('Home', _home6.default);
 
 exports.default = homeModule;
 
-},{"./home.config":105,"./home.controller":106,"./home.service":107,"angular":102}]},{},[103]);
+},{"./home.config":107,"./home.controller":108,"./home.service":109,"angular":102}]},{},[103]);
