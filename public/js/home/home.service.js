@@ -6,7 +6,9 @@ class Home {
 
     return {
       user: this.user
-    };
+    }
+    
+
   }
 
 }

@@ -11,9 +11,9 @@ let candidatasModule = angular.module('app.candidatas', []);
 // import CandidatasCtrl from './candidatas.controller';
 // candidatasModule.controller('CandidatasCtrl', CandidatasCtrl);
 
-// //Services
-// import CandidatasService from './candidatas.service';
-// candidatasModule.service('Candidatas', CandidatasService);
+//Services
+import CandidatasService from './candidatas.service';
+candidatasModule.service('Candidatas', CandidatasService);
 
 // Components
 import CandidatasHeader from './candidatas.component';

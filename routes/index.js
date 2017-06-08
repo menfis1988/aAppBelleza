@@ -9,8 +9,8 @@ const passport = require('passport');
 api.get('/', index.render);
 
 // Configurar las rutas Candidatas
-api.get('/candidatas', candidatas.getall)
-api.post('/candidatas', candidatas.addCandidata)
+api.get('/api/candidatas', candidatas.getall)
+api.post('/api/candidatas', candidatas.addCandidata)
 
 
 // Configurar las rutas Facebook

@@ -2,7 +2,10 @@ class CandidatasCtrl {
   constructor($scope, Candidatas) {
     'ngInject';
 
-    $scope.candidatas=Candidatas.query();
+    this._$scope=$scope
+
+    this._$scope.candidatas=Candidatas.query();
+  
 
   }
 }

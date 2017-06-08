@@ -88158,7 +88158,7 @@ window.app = _angular2.default.module('App', requires);
 
 _angular2.default.module('App').config(_app2.default);
 
-},{"./candidatas":106,"./components":107,"./config/app.config":109,"./home":113,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90,"material-design-icons":103}],105:[function(require,module,exports){
+},{"./candidatas":107,"./components":108,"./config/app.config":110,"./home":114,"angular":102,"angular-animate":74,"angular-aria":76,"angular-material":80,"angular-material-icons":78,"angular-messages":82,"angular-resource":84,"angular-sanitize":86,"angular-ui-router":90,"material-design-icons":103}],105:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88172,7 +88172,9 @@ var CandidatasCtrl = function CandidatasCtrl($scope, Candidatas) {
 
   _classCallCheck(this, CandidatasCtrl);
 
-  $scope.candidatas = Candidatas.query();
+  this._$scope = $scope;
+
+  this._$scope.candidatas = Candidatas.query();
 };
 CandidatasCtrl.$inject = ["$scope", "Candidatas"];
 
@@ -88190,13 +88192,41 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Candidatas = function Candidatas($resource) {
+  'ngInject';
+
+  _classCallCheck(this, Candidatas);
+
+  return $resource('api/candidatas/:id', { id: '@_id' }, {
+    show: { method: 'GET' },
+    update: { method: 'PUT' },
+    get: { method: 'GET', isArray: true }
+  });
+};
+Candidatas.$inject = ["$resource"];
+
+exports.default = Candidatas;
+
+},{}],107:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _angular = require('angular');
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _candidatas = require('./candidatas.component');
+var _candidatas = require('./candidatas.service');
 
 var _candidatas2 = _interopRequireDefault(_candidatas);
+
+var _candidatas3 = require('./candidatas.component');
+
+var _candidatas4 = _interopRequireDefault(_candidatas3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -88211,17 +88241,17 @@ var candidatasModule = _angular2.default.module('app.candidatas', []);
 // import CandidatasCtrl from './candidatas.controller';
 // candidatasModule.controller('CandidatasCtrl', CandidatasCtrl);
 
-// //Services
-// import CandidatasService from './candidatas.service';
-// candidatasModule.service('Candidatas', CandidatasService);
+//Services
+
+candidatasModule.service('Candidatas', _candidatas2.default);
 
 // Components
 
-candidatasModule.component('candidatasHeader', _candidatas2.default);
+candidatasModule.component('candidatasHeader', _candidatas4.default);
 
 exports.default = candidatasModule;
 
-},{"./candidatas.component":105,"angular":102}],107:[function(require,module,exports){
+},{"./candidatas.component":105,"./candidatas.service":106,"angular":102}],108:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88255,7 +88285,7 @@ componentsModule.component('bellezaToolbar', _toolbar2.default);
 
 exports.default = componentsModule;
 
-},{"./toolbar.component":108,"angular":102}],108:[function(require,module,exports){
+},{"./toolbar.component":109,"angular":102}],109:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88278,7 +88308,7 @@ var BellezaToolbar = {
 
 exports.default = BellezaToolbar;
 
-},{}],109:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 'use strict';
 
 AppConfig.$inject = ["$httpProvider", "$stateProvider", "$locationProvider", "$urlRouterProvider", "$mdThemingProvider"];
@@ -88298,7 +88328,7 @@ function AppConfig($httpProvider, $stateProvider, $locationProvider, $urlRouterP
 
 exports.default = AppConfig;
 
-},{}],110:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 'use strict';
 
 HomeConfig.$inject = ["$stateProvider"];
@@ -88317,7 +88347,7 @@ function HomeConfig($stateProvider) {
 
 exports.default = HomeConfig;
 
-},{}],111:[function(require,module,exports){
+},{}],112:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88337,7 +88367,7 @@ HomeCtrl.$inject = ["$scope", "$http", "$stateParams", "Home"];
 
 exports.default = HomeCtrl;
 
-},{}],112:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88361,7 +88391,7 @@ Home.$inject = ["$resource"];
 
 exports.default = Home;
 
-},{}],113:[function(require,module,exports){
+},{}],114:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -88403,4 +88433,4 @@ homeModule.service('Home', _home6.default);
 
 exports.default = homeModule;
 
-},{"./home.config":110,"./home.controller":111,"./home.service":112,"angular":102}]},{},[104]);
+},{"./home.config":111,"./home.controller":112,"./home.service":113,"angular":102}]},{},[104]);

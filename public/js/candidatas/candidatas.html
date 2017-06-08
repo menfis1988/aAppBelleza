@@ -1,45 +1,15 @@
 <div> 
-  <md-card>
-  <md-card-content layout="row" layout-align="space-between">
-    <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">Nombre Apellido</span>
-      <span class="md-subhead"><a href="">ver más</a></span>
-    </md-card-title-text>
-  </md-card-title>
-    <md-card-actions layout="column">
-        <a href=""><i class="material-icons">favorite</i></a>
-        <a href=""><i class="material-icons">share-arrow</i></a> 
-    </md-card-actions>
-  </md-card-content>
-</md-card>
-<md-card>
-  <md-card-content layout="row" layout-align="space-between">
-    <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">Nombre Apellido</span>
-      <span class="md-subhead"><a href="">ver más</a></span>
-    </md-card-title-text>
-  </md-card-title>
-    <md-card-actions layout="column">
-        <a href=""><i class="material-icons">favorite</i></a>
-        <a href=""><i class="material-icons">share-arrow</i></a> 
-    </md-card-actions>
-  </md-card-content>
-</md-card>
-<md-card>
-  <md-card-content layout="row" layout-align="space-between">
-    <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">Nombre Apellido</span>
-      <span class="md-subhead"><a href="">ver más</a></span>
-    </md-card-title-text>
-  </md-card-title>
-    <md-card-actions layout="column">
-        <a href=""><i class="material-icons">favorite</i></a>
-        <a href=""><i class="material-icons">share-arrow</i></a> 
-    </md-card-actions>
-  </md-card-content>
-</md-card>
+  <md-card ng-repeat="c in candidatas">
+    <md-card-content layout="row" layout-align="space-between">
+      <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{c.nombre}}{{hola}}</span>
+      </md-card-title-text>
+    </md-card-title>
+      <md-card-actions layout="column">
+          <a href=""><i class="material-icons">favorite</i> {{c.votos}}</a>
+      </md-card-actions>
+    </md-card-content>
+  </md-card>
 </div>
 
