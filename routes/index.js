@@ -3,9 +3,15 @@
 const express = require('express')
 const api = express.Router()
 const index = require('../services/indexController');
+const candidatas = require('../services/candidatasController');
 const passport = require('passport');
 
 api.get('/', index.render);
+
+// Configurar las rutas Candidatas
+api.get('/candidatas', candidatas.getall)
+api.post('/candidatas', candidatas.addCandidata)
+
 
 // Configurar las rutas Facebook
 

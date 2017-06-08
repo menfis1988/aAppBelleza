@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 
 const candidataSchema = Schema({
-  nombre: { type: String, unique: true },
+  nombre: { type: String },
   votos: Number,
   created: { type: Date, default: Date.now },
   
