@@ -17,6 +17,7 @@ const userSchema = Schema({
     picture: { type: String, default: '' }
   },
   created: { type: Date, default: Date.now },
+  lastsesion: { type: Date }
   
 });
 

@@ -3,6 +3,7 @@ class HomeCtrl {
     'ngInject';
 
     $scope.authentication = Home;
+
     
   }
 

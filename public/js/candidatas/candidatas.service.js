@@ -1,7 +1,5 @@
 class Candidatas {
 
-
-
   constructor($resource) {
     'ngInject';
 
