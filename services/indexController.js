@@ -9,6 +9,14 @@ exports.render = function(req, res) {
 	});
 };
 
+exports.renderadmin = function(req, res) {
+	// Usar el objeto 'response' para renderizar la view 'index' con un 'title' y propiedades 'userFullName'
+	res.render('admin', {
+		title: 'Inicio',
+		useradmin: JSON.stringify(req.useradmin)
+	});
+};
+
 exports.renderSignin = function(req, res, next) {
   
   if (!req.user) {

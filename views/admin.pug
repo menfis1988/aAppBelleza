@@ -1,0 +1,7 @@
+extends layoutadmin.pug
+
+block content
+
+  script(type='text/javascript').
+      window.useradmin =!{useradmin || 'null'}
+  section(ui-view='')

@@ -9,6 +9,8 @@ const passport = require('passport');
 
 api.get('/', index.render);
 
+api.get('/admin', index.renderadmin);
+
 // Configurar las rutas Candidatas
 api.get('/api/candidatas', candidatas.getall)
 api.get('/api/candidatas/:id', candidatas.getDetail)

@@ -1,0 +1,33 @@
+<section ng-show="!authentication.useradmin">
+  <div>
+    <md-container layout="column" layout-align="center center" flex>
+      <h2  layout-align="center center">ADMINISTRACION</h2>
+      <form name="myForm1">
+        <md-input-container class="md-block">
+            <label>usuario:</label>
+            <input type="text" ng-model="cliente.prioridad" required>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>contraseña:</label>
+            <input type="text" ng-model="cliente.razonsocial" required>
+        </md-input-container>
+      </form>
+    </md-container>
+</div>
+<div layout="row" layout-align="center" layout-margin>
+    <div>
+        <a ng-href="#!/">
+            <md-button class="md-accent md-raised" ng-click="entrar()" >
+                <span ></span> entrar
+            </md-button>
+        </a>
+    </div>
+</div>
+      
+</section>
+<div ng-show="authentication.useradmin" >
+  <div>
+    HOLA ADMIN ENTRASTE
+  </div>
+  <admin-header></admin-header>
+</div>

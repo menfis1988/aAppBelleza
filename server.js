@@ -49,7 +49,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.set('view engine', 'pug');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/',express.static(path.join(__dirname, 'public')));
+app.use('/admin', express.static(path.join(__dirname, 'admin')));
 
 const api = require('./routes');
 
