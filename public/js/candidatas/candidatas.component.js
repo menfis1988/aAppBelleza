@@ -1,11 +1,14 @@
 class CandidatasCtrl {
-  constructor($scope, Candidatas) {
+  constructor($scope, Candidatas, $stateParams, $http, $routeParams) {
     'ngInject';
 
-    this._$scope=$scope
+    $scope.candidatas=Candidatas.query();
+    
+    $scope.addVoto = function(item){
+    item.votos +=1;
+    $http.put("api/candidatas/"+item._id,{votos:item.votos});
+  };
 
-    this._$scope.candidatas=Candidatas.query();
-  
 
   }
 }

@@ -2,14 +2,18 @@
   <md-card ng-repeat="c in candidatas">
     <md-card-content layout="row" layout-align="space-between">
       <md-card-title>
-      <md-card-title-text>
-        <span class="md-headline">{{c.nombre}}{{hola}}</span>
+      <md-card-title-text >
+        <span class="md-headline">{{c.nombre}}</span>
       </md-card-title-text>
     </md-card-title>
-      <md-card-actions layout="column">
-          <a href=""><i class="material-icons">favorite</i> {{c.votos}}</a>
+      <md-card-actions layout="column" layouy-align="center center">
+        <div>
+          <input type="number" value="{{c.votos}}" ng-show="false">
+          <md-button class="md-warm" ng-click="addVoto(c)"><i class="material-icons">favorite</i> {{c.votos}}</md-button>
+        </div>
       </md-card-actions>
     </md-card-content>
   </md-card>
 </div>
+
 

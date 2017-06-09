@@ -12,6 +12,7 @@ import 'angular-material';
 import 'angular-material-icons';
 import 'material-design-icons';
 
+import './auspiciantes';
 import './home';
 import './candidatas';
 import './components';
@@ -26,9 +27,10 @@ const requires = [
   'ngMdIcons',
   'ngSanitize',
 
+  'app.auspiciantes',
   'app.home',
   'app.candidatas',
-  'app.components',
+  'app.components'
   
   ];
 
