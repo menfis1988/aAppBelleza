@@ -10,6 +10,7 @@ const passport = require('passport');
 api.get('/', index.render);
 
 api.get('/admin', index.renderadmin);
+app.post('/login', candidatas.postLogin);
 
 // Configurar las rutas Candidatas
 api.get('/api/candidatas', candidatas.getall)
@@ -23,7 +24,6 @@ api.put('/api/user/:id', users.updateUser)
 
 
 // Configurar las rutas Facebook
-
 api.get('/auth/facebook', passport.authenticate('facebook', { scope: [ 'email' ] }));
 api.get('/auth/facebook/callback', passport.authenticate('facebook',{ 
   successRedirect: '/', 

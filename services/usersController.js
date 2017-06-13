@@ -29,5 +29,31 @@ exports.updateUser = (req, res, prop) => {
         res.json({ message: 'updated!' });
     });
   });
+}
 
+// User Admin
+
+exports.postLogin = (req, res, next) => {
+  req.assert('email', 'Email no es valido ').isEmail();
+  req.assert('password', 'Password no puede estar en blanco').notEmpty();
+  
+
+  const errors = req.validationErrors();
+
+  if (errors) {
+    req.flash('errors', errors);
+    return res.redirect('/');
   }
+
+  passport.authenticate('local', (err, user, info) => {
+    if (err) { return next(err); }
+    if (!user) {
+      req.flash('errors', info);
+      return res.redirect('/');
+    }
+    req.logIn(user, (err) => {
+      if (err) { return next(err); }
+      res.redirect(req.session.returnTo || '/');
+    });
+  })(req, res, next);
+};
