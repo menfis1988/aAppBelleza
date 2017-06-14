@@ -17,12 +17,41 @@
 </div>
 </section>
 <div ng-show="authentication.user" >
-  <div ng-show="{{authentication.user.role}}===juez">
-    HOLA JUEZ
-    Puedes ver esto
+  <div layout="column"  ng-cloak>
+    <section layout="row" flex>
+      <md-toolbar class="toolbar-fixed" layout="row" >
+        <div class="md-toolbar-tools">
+          <md-menu>
+            <md-button aria-label="Open demo menu" ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="More">
+                <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+            </md-button>
+            <md-menu-content>
+              <md-menu-item>
+                <md-button href="/admin/signout"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesion</md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </div>
+      </md-toolbar>
+    </section>
+  </div> 
+  <div>
+    <md-card ng-show="{{authentication.user.role}}==admin">
+      <md-card-content layout="row" layout-align="space-between">
+        <md-card-title>
+          <md-card-title-text >
+            <span class="md-headline">Soy {{authentication.user.role}}</span>
+          </md-card-title-text>
+      </md-card-title>
+      </md-card-content>
+    </md-card>
+    <md-card ng-show="{{authentication.user.role}}!=juez">
+      <md-card-content layout="row" layout-align="space-between">
+        <md-card-title>
+          <md-card-title-text >
+            <span class="md-headline">Soy {{authentication.user.role}}</span>
+          </md-card-title-text>
+      </md-card-title>
+      </md-card-content>
+    </md-card>
   </div>
-  <div >
-    HOLA ADMIN ENTRASTE
-  </div>
-  <admin-header></admin-header>
-</div>
