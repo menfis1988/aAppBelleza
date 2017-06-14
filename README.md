@@ -1,7 +1,7 @@
 # aAppBelleza
 prueba app belleza
 
-# aAppBelleza
+# iniciar
 
 terminal
 
