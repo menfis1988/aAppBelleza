@@ -8,25 +8,25 @@ const User = require('../models/User');
 const UserAdmin = require('../models/UserAdmin');
 const mongoose = require('mongoose');
 
-passport.serializeUser( function(user, done) {
-  return done(null, user);
+passport.serializeUser( function(useradmin, done) {
+  return done(null, useradmin);
 });
 
-passport.deserializeUser( function(user, done) {
-  return done(null, user);
+passport.deserializeUser( function(useradmin, done) {
+  return done(null, useradmin);
 });
 
 passport.use(new LocalStrategy({ usernameField: 'cedula' }, (cedula, password, done) => {
-  UserAdmin.findOne({ cedula: cedula.toLowerCase() }, (err, user) => {
+  UserAdmin.findOne({ cedula: cedula.toLowerCase() }, (err, useradmin) => {
     if (err) { return done(err); }
-    if (!user) {
+    if (!useradmin) {
       return done(null, false, { msg: `cedula ${cedula} no existe.` });
     }
 
-    user.comparePassword(password, (err, isMatch) => {
+    useradmin.comparePassword(password, (err, isMatch) => {
       if (err) { return done(err); }
       if (isMatch) {
-        return done(null, user);
+        return done(null, useradmin);
       }
       return done(null, false, { msg: 'Password invalido.' });
     });

@@ -71,21 +71,21 @@ exports.postSignup = (req, res, next) => {
 
 };
 
-exports.getsignin = (req, res) => {
-  if (req.useradmin) {
-    return res.redirect('/admin');
-  }
-  res.render('index', {
-    title: 'Login'
-  });
-};
+// exports.getsignin = (req, res) => {
+//   if (req.useradmin) {
+//     return res.redirect('/admin');
+//   }
+//   res.render('index', {
+//     title: 'Login'
+//   });
+// };
 
 exports.signin = (req, res, next) => {    
 
-  passport.authenticate('local', (err, user, info) => {
+  passport.authenticate('local', (err, useradmin, info) => {
     if (err) { return next(err); }
     
-    req.logIn(user, (err) => {
+    req.logIn(useradmin, (err) => {
       if (err) { return next(err); }
       res.redirect(req.session.returnTo || '/admin');
     });

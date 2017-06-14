@@ -48,4 +48,4 @@ useradminSchema.methods.gravatar = function gravatar(size) {
   return `https://gravatar.com/avatar/${md5}?s=${size}&d=retro`;
 };
 
-module.exports = mongoose.model('UserAdmin', useradminSchema);
+module.exports = mongoose.model('useradmin', useradminSchema);

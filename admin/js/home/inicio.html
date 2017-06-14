@@ -16,7 +16,7 @@
     </md-container>
 </div>
 </section>
-<div ng-show="authentication.user" >
+<div ng-show="authentication.user && authentication.user.role!=null" >
   <div layout="column"  ng-cloak>
     <section layout="row" flex>
       <md-toolbar class="toolbar-fixed" layout="row" >
@@ -55,3 +55,9 @@
       </md-card-content>
     </md-card>
   </div>
+</div>
+<div ng-show="authentication.user.profile!=null"> 
+  <h3>No estas Autorizado</h3>
+  <md-button ng-href="/signout">Salir</md-button>
+</div>
+
