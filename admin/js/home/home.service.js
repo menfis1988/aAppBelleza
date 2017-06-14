@@ -2,10 +2,10 @@ class Home {
   constructor($resource) {
     'ngInject';
     
-    this.useradmin = window.useradmin;
+    this.user = window.user;
 
     return {
-      user: this.useradmin
+      user: this.user
     }
     
 

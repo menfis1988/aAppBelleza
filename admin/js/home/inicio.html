@@ -1,32 +1,27 @@
-<section ng-show="!authentication.useradmin">
+<section ng-show="!authentication.user">
   <div>
     <md-container layout="column" layout-align="center center" flex>
       <h2  layout-align="center center">ADMINISTRACION</h2>
-      <form name="myForm1">
+      <form action="/admin/signin"  method="POST">
         <md-input-container class="md-block">
             <label>usuario:</label>
-            <input type="text" ng-model="cliente.prioridad" required>
+            <input type='number' name='cedula' id='cedula'>
         </md-input-container>
         <md-input-container class="md-block">
             <label>contraseña:</label>
-            <input type="text" ng-model="cliente.razonsocial" required>
+            <input type='password' name='password' id='password'>
         </md-input-container>
+        <md-button type="submit"class="md-accent md-raised">ingresar</md-button>
       </form>
     </md-container>
 </div>
-<div layout="row" layout-align="center" layout-margin>
-    <div>
-        <a ng-href="#!/">
-            <md-button class="md-accent md-raised" ng-click="entrar()" >
-                <span ></span> ingresar
-            </md-button>
-        </a>
-    </div>
-</div>
-      
 </section>
-<div ng-show="authentication.useradmin" >
-  <div>
+<div ng-show="authentication.user" >
+  <div ng-show="{{authentication.user.role}}===juez">
+    HOLA JUEZ
+    Puedes ver esto
+  </div>
+  <div >
     HOLA ADMIN ENTRASTE
   </div>
   <admin-header></admin-header>

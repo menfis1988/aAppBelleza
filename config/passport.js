@@ -2,8 +2,10 @@
 'use strict';
 const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
+const LocalStrategy = require('passport-local').Strategy;
 const config = require('../config')
 const User = require('../models/User');
+const UserAdmin = require('../models/UserAdmin');
 const mongoose = require('mongoose');
 
 passport.serializeUser( function(user, done) {
@@ -13,6 +15,23 @@ passport.serializeUser( function(user, done) {
 passport.deserializeUser( function(user, done) {
   return done(null, user);
 });
+
+passport.use(new LocalStrategy({ usernameField: 'cedula' }, (cedula, password, done) => {
+  UserAdmin.findOne({ cedula: cedula.toLowerCase() }, (err, user) => {
+    if (err) { return done(err); }
+    if (!user) {
+      return done(null, false, { msg: `cedula ${cedula} no existe.` });
+    }
+
+    user.comparePassword(password, (err, isMatch) => {
+      if (err) { return done(err); }
+      if (isMatch) {
+        return done(null, user);
+      }
+      return done(null, false, { msg: 'Password invalido.' });
+    });
+  });
+}));
 
 passport.use(new FacebookStrategy({
   clientID: '1680788428884453',

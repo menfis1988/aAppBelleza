@@ -1,7 +1,9 @@
 'use strict';
 
+const passport = require('passport');
 var express = require('express');
 var User = require('../models/User');
+var UserAdmin = require('../models/UserAdmin');
 
 
 exports.getDetail = (req, res) => {
@@ -33,27 +35,65 @@ exports.updateUser = (req, res, prop) => {
 
 // User Admin
 
-exports.postLogin = (req, res, next) => {
-  req.assert('email', 'Email no es valido ').isEmail();
-  req.assert('password', 'Password no puede estar en blanco').notEmpty();
-  
+// crear usuario desde Postman
 
-  const errors = req.validationErrors();
-
-  if (errors) {
-    req.flash('errors', errors);
+exports.getSignup = (req, res) => {
+  if (req.user) {
     return res.redirect('/');
   }
+  res.render('./signup', {
+    title: 'Crear Cuenta'
+  });
+};
+
+exports.postSignup = (req, res, next) => {
+
+  const useradmin = new UserAdmin({
+    cedula: req.body.cedula,
+    password: req.body.password,
+    role: req.body.role,
+    provider: 'local'
+  });
+
+  UserAdmin.findOne({ cedula: req.body.cedula }, (err, existingUser) => {
+    if (err) { return next(err); }
+    
+    useradmin.save((err) => {
+      if (err) { return next(err); }
+      req.logIn(useradmin, (err) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect('/admin');
+      });
+    });
+  });
+
+};
+
+exports.getsignin = (req, res) => {
+  if (req.useradmin) {
+    return res.redirect('/admin');
+  }
+  res.render('account/login', {
+    title: 'Login'
+  });
+};
+
+exports.signin = (req, res, next) => {
 
   passport.authenticate('local', (err, user, info) => {
     if (err) { return next(err); }
-    if (!user) {
-      req.flash('errors', info);
-      return res.redirect('/');
-    }
+    
     req.logIn(user, (err) => {
       if (err) { return next(err); }
-      res.redirect(req.session.returnTo || '/');
+      res.redirect(req.session.returnTo || '/admin');
     });
   })(req, res, next);
+  
+};
+
+exports.signout = (req, res) => {
+  req.logout();
+  res.redirect('/admin');
 };

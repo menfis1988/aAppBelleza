@@ -10,7 +10,11 @@ const passport = require('passport');
 api.get('/', index.render);
 
 api.get('/admin', index.renderadmin);
-app.post('/login', candidatas.postLogin);
+api.get('/admin', users.getsignin)
+api.post('/admin/signin', users.signin);
+api.get('/admin/signup', users.getSignup);
+api.post('/admin/signup', users.postSignup);
+api.get('/admin/signout', users.signout);
 
 // Configurar las rutas Candidatas
 api.get('/api/candidatas', candidatas.getall)
