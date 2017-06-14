@@ -7,7 +7,7 @@ const	passport = require('passport');
 
 exports.renderSignin = function(req, res, next) {
   
-  if (!req.user) {
+  if (!req.useradmin) {
     res.render('signin', {
       title: 'Belleza:: Sign'
     });

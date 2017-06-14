@@ -75,7 +75,7 @@ exports.getsignin = (req, res) => {
   if (req.useradmin) {
     return res.redirect('/admin');
   }
-  res.render('account/login', {
+  res.redirect('/admin', {
     title: 'Login'
   });
 };

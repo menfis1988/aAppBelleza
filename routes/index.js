@@ -7,9 +7,9 @@ const candidatas = require('../services/candidatasController');
 const users = require('../services/usersController');
 const passport = require('passport');
 
-api.get('/', index.render);
+// api.get('/', index.render);
 
-api.get('/admin', index.renderadmin);
+api.get('/', index.renderadmin);
 api.get('/admin', users.getsignin)
 api.post('/admin/signin', users.signin);
 api.get('/admin/signup', users.getSignup);
