@@ -75,12 +75,12 @@ exports.getsignin = (req, res) => {
   if (req.useradmin) {
     return res.redirect('/admin');
   }
-  res.redirect('/admin', {
+  res.render('login', {
     title: 'Login'
   });
 };
 
-exports.signin = (req, res, next) => {
+exports.signin = (req, res, next) => {    
 
   passport.authenticate('local', (err, user, info) => {
     if (err) { return next(err); }

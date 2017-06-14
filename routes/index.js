@@ -10,7 +10,7 @@ const passport = require('passport');
 // api.get('/', index.render);
 
 api.get('/', index.renderadmin);
-api.get('/admin', users.getsignin)
+api.get('/admin', users.signin)
 api.post('/admin/signin', users.signin);
 api.get('/admin/signup', users.getSignup);
 api.post('/admin/signup', users.postSignup);
