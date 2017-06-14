@@ -1,13 +1,13 @@
 # aAppBelleza
 prueba app belleza
 
-# iniciar
-
-terminal
-
+## Instalar
+```
 npm install
+```
+
+## Iniciar App
+```
 gulp
-
-iniciar server
-
+```
 node server
